@@ -1,0 +1,17 @@
+#!/bin/sh
+
+echo
+
+ldapsearch -x -h ldap.corp.redhat.com -b ou=users,dc=redhat,dc=com \
+	"(|(mail=$1*)(cn=$1*)(givenname=$1*)(sn=$1*)(uid=$1*)(rhatnickname=$1*))" \
+	mail cn displayname rhatnickname |
+awk '
+/^$/ && mail {printf "%s\t%s (%s)\n", mail, cn, rhatnickname}
+/^$/ {mail=""}
+
+/^mail:/		{mail=substr($0, 7)}
+/^displayname:/		{displayname=substr($0, 14)}
+/^cn:/			{cn=substr($0, 5)}
+/^rhatnickname:/	{rhatnickname=substr($0, 15)}
+'
+

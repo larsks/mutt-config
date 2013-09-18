@@ -1,0 +1,13 @@
+#!/bin/sh
+
+echo
+
+tmpfile=$(mktemp $HOME/.mutt/queryXXXXXX)
+trap 'rm -f $tmpfile' EXIT
+
+for provider in $HOME/.mutt/query-providers/*; do
+	if $provider "$@" > $tmpfile; then
+		sed '/^$/d' $tmpfile
+	fi
+done
+
