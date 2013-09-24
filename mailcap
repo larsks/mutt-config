@@ -1,0 +1,4 @@
+text/html;	firefox %s	; nametemplate=%s.html; test=test -n "$DISPLAY"
+text/html;	links -dump %s	; nametemplate=%s.html; copiousoutput
+text/calendar;	view-ical %s	; nametemplate=%s.ical; copiousoutput
+

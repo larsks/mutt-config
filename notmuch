@@ -1,0 +1,31 @@
+##
+## NOTMUCH CONFIGURATION
+##
+
+set nm_default_uri = "notmuch:///home/lkellogg/Mail"
+virtual-mailboxes \
+	"INBOX" "notmuch://?query=tag:inbox" \
+	"Important" "notmuch://?query=tag:flagged" \
+	"Interesting" "notmuch://?query=tag:interesting" \
+	"Cloud" "notmuch://?query=tag:redhat AND tag:cloud AND NOT tag:archive" \
+	"Unread recent Red Hat" "notmuch://?query=tag:unread AND tag:redhat AND tag:list AND NOT tag:archive&limit=500" \
+	"Unread recent Other" "notmuch://?query=tag:unread AND NOT tag:redhat AND tag:list AND NOT tag:archive&limit=500" \
+	"Unread unfiltered" "notmuch://?query=tag:unread AND tag:list AND tag:latent AND NOT tag:archive&limit=500"
+
+macro index A "<modify-labels-then-hide>+archive -inbox\n<sync-mailbox>"
+set virtual_spoolfile = yes
+
+tag-transforms "inbox" "i" \
+		"unread" "u" \
+		"replied" "↻ " \
+		"sent" "➥ " \
+		"todo" "T" \
+		"deleted" "DEL"
+
+set nm_record = yes
+set nm_record_tags = "-inbox sent"
+
+# Straight from README.notmuch
+set index_format = "%4C %Z %[%d/%b] %-16.15F %s %> %?g?(%g)?"
+set pager_format = "-%Z- %C/%m: %-20.20n %s%* -- %?g?(%g)? - (%P)"
+
