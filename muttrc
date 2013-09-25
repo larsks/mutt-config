@@ -19,7 +19,7 @@ set signature = ~/.signature
 set header_cache = ~/.mutt/cache/headers
 set message_cachedir = ~/.mutt/cache/messages
 
-set query_command = "$HOME/.mutt/mutt-query-command '%s'"
+set query_command = "$HOME/.mutt/scripts/query-command '%s'"
 bind editor <tab> "complete-query"
 
 # add sender to addressbook
@@ -31,7 +31,7 @@ macro index,pager I "<modify-labels>+interesting<return>"
 # mark all as read
 macro index M "<tag-pattern>~N<return>;WN<untag-pattern>~A<return>"
 
-set editor="gvim -f"
+set editor="vim"
 
 ##
 ## HEADERS
