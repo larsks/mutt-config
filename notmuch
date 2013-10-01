@@ -7,20 +7,21 @@ virtual-mailboxes \
 	"INBOX" "notmuch://?query=tag:inbox" \
 	"Important" "notmuch://?query=tag:flagged" \
 	"Interesting" "notmuch://?query=tag:interesting" \
-	"Cloud" "notmuch://?query=tag:redhat AND tag:cloud AND NOT tag:archive" \
-	"Unread recent Red Hat" "notmuch://?query=tag:unread AND tag:redhat AND tag:list AND NOT tag:archive&limit=500" \
-	"Unread recent Other" "notmuch://?query=tag:unread AND NOT tag:redhat AND tag:list AND NOT tag:archive&limit=500" \
-	"Unread unfiltered" "notmuch://?query=tag:unread AND tag:list AND tag:latent AND NOT tag:archive&limit=500"
+	"Cloud" "notmuch://?query=tag:unread AND tag:redhat AND tag:cloud AND NOT tag:archive&limit=200" \
+	"Red Hat" "notmuch://?query=tag:unread AND tag:redhat AND tag:list AND NOT tag:archive AND NOT tag:cloud&limit=200" \
+	"Other" "notmuch://?query=tag:unread AND NOT tag:redhat AND tag:list AND NOT tag:archive&limit=200" \
+	"Unfiltered" "notmuch://?query=tag:unread AND tag:list AND tag:latent AND NOT tag:archive&limit=200"
 
 macro index A "<modify-labels-then-hide>+archive -inbox\n<sync-mailbox>"
 set virtual_spoolfile = yes
 
-tag-transforms "inbox" "i" \
+tag-transforms "inbox" "✉" \
+		"flagged" "☀" \
 		"unread" "u" \
 		"replied" "↻ " \
 		"sent" "➥ " \
-		"todo" "T" \
-		"deleted" "DEL"
+		"todo" "☑" \
+		"deleted" "☠"
 
 set nm_record = yes
 set nm_record_tags = "-inbox sent"
