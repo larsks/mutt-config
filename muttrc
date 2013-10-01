@@ -23,9 +23,11 @@ set query_command = "$HOME/.mutt/scripts/query-command '%s'"
 bind editor <tab> "complete-query"
 
 # add sender to addressbook
-macro index,pager A "<pipe-message>abook --add-email<return>"
+macro index,pager \\a "<pipe-message>abook --add-email<return>"
+macro index,pager \\s "<pipe-message>swap-sender | abook --add-email<return>"
+macro index,pager \\o "<pipe-message>about-sender<return>"
 macro index,pager \cb "<pipe-entry>urlview<enter>"
-macro index,pager G "<shell-escape>getmail -v<return>"
+macro index,pager G "<shell-escape>flock -n ~/.lock/getmail getmail -v<return>"
 macro index,pager I "<modify-labels>+interesting<return>"
 
 # mark all as read
