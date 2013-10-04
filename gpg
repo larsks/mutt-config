@@ -10,8 +10,12 @@ set pgp_export_command="gpg --no-verbose --export --armor %r"
 set pgp_verify_key_command="gpg --no-verbose --batch --fingerprint --check-sigs %r"
 set pgp_list_pubring_command="gpg --no-verbose --batch --with-colons --list-keys %r" 
 set pgp_list_secring_command="gpg --no-verbose --batch --with-colons --list-secret-keys %r" 
-set pgp_autosign=no
 set pgp_replyencrypt=yes
 set pgp_timeout=14400
 set pgp_good_sign="^gpg: Good signature from"
+
+set pgp_sign_as=0x7BF065CD97112F06
+set crypt_autosign
+set crypt_verify_sig
+
 
