@@ -1,7 +1,9 @@
 set realname = "Lars Kellogg-Stedman"
 set from = "lars@redhat.com"
 set use_envelope_from = yes
+set hostname="redhat.com"
 
+set editor="vim"
 set mbox_type = Maildir
 set spoolfile = ~/Mail/
 set folder = ~/Mail/
@@ -13,27 +15,12 @@ set timeout = 30
 set record = =sent-messages
 set confirmappend = no
 set sort=threads
-
+set wait_key=no
 set signature = ~/.signature
-
 set header_cache = ~/.mutt/cache/headers
 set message_cachedir = ~/.mutt/cache/messages
-
 set query_command = "$HOME/.mutt/scripts/query-command '%s'"
 bind editor <tab> "complete-query"
-
-# add sender to addressbook
-macro index,pager \\a "<pipe-message>abook --add-email<return>"
-macro index,pager \\s "<pipe-message>swap-sender | abook --add-email<return>"
-macro index,pager \\o "<pipe-message>about-sender<return>"
-macro index,pager \cb "<pipe-entry>urlview<enter>"
-macro index,pager G "<shell-escape>flock -n ~/.lock/getmail getmail -v<return>"
-macro index,pager I "<modify-labels>+interesting<return>"
-
-# mark all as read
-macro index M "<tag-pattern>~N<return>;WN<untag-pattern>~A<return>"
-
-set editor="vim"
 
 ##
 ## HEADERS
@@ -43,6 +30,8 @@ ignore *
 unignore from date to cc subject
 unignore message-id
 unignore list-id
+unignore in-reply-to
+unignore references
 
 ##
 ## MIME
@@ -56,4 +45,6 @@ auto_view text/calendar
 source ~/.mutt/colors
 source ~/.mutt/gpg
 source ~/.mutt/notmuch
+source ~/.mutt/vfolders
+source ~/.mutt/keys
 

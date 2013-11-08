@@ -3,17 +3,7 @@
 ##
 
 set nm_default_uri = "notmuch:///home/lkellogg/Mail"
-virtual-mailboxes \
-	"INBOX" "notmuch://?query=tag:inbox AND NOT tag:archive" \
-	"Important" "notmuch://?query=tag:flagged" \
-	"Interesting" "notmuch://?query=tag:interesting" \
-	"Cloud" "notmuch://?query=tag:unread AND tag:redhat AND tag:cloud AND NOT tag:archive&limit=200" \
-	"Commits" "notmuch://?query=tag:unread AND to:cvs-commits&limit=200" \
-	"Red Hat" "notmuch://?query=tag:unread AND tag:redhat AND tag:list AND NOT tag:archive AND NOT tag:cloud AND NOT tag:robot&limit=200" \
-	"Other" "notmuch://?query=tag:unread AND NOT tag:redhat AND tag:list AND NOT tag:archive&limit=200" \
-	"Unfiltered" "notmuch://?query=tag:unread AND tag:list AND tag:latent AND NOT tag:archive&limit=200"
 
-macro index A "<modify-labels-then-hide>+archive -inbox\n<sync-mailbox>"
 set virtual_spoolfile = yes
 
 tag-transforms "inbox" "✉" \

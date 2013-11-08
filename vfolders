@@ -1,0 +1,17 @@
+virtual-mailboxes \
+	"INBOX" "notmuch://?query=tag:inbox AND NOT tag:archive" \
+	\
+	"Important" "notmuch://?query=tag:flagged" \
+	"Interesting" "notmuch://?query=tag:interesting" \
+	"Following" "notmuch://?query=tag:following&type=threads" \
+	\
+	"Cloud @ RedHat" "notmuch://?query=tag:unread AND tag:redhat AND tag:cloud AND NOT tag:archive&limit=200" \
+	"Cloud @ Elsewhere" "notmuch://?query=tag:unread AND NOT tag:redhat AND tag:cloud AND NOT tag:archive&limit=200" \
+	"Commits" "notmuch://?query=tag:unread AND to:cvs-commits&limit=200" \
+	"Red Hat" "notmuch://?query=tag:unread AND tag:redhat AND tag:list AND NOT tag:archive AND NOT tag:cloud AND NOT tag:robot&limit=200" \
+	"Other" "notmuch://?query=tag:unread AND NOT tag:redhat AND tag:list AND NOT tag:archive&limit=200" \
+	"People:mattdm" "notmuch://?query=from:mattdm AND tag:unread" \
+	"People:pmyers" "notmuch://?query=from:pmyers AND tag:unread" \
+	"People:dansmith" "notmuch://?query=(from:dansmith OR from:dms@danplanet.com) AND tag:unread" \
+	"Unfiltered" "notmuch://?query=tag:unread AND tag:list AND tag:latent AND NOT tag:archive&limit=200"
+
