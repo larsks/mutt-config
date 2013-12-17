@@ -14,13 +14,15 @@ set mail_check = 60
 set timeout = 30
 set record = =sent-messages
 set confirmappend = no
-set sort=threads
 set wait_key=no
 set signature = ~/.signature
 set header_cache = ~/.mutt/cache/headers
 set message_cachedir = ~/.mutt/cache/messages
 set query_command = "$HOME/.mutt/scripts/query-command '%s'"
-bind editor <tab> "complete-query"
+set sort_browser = unsorted
+
+folder-hook . set sort=threads
+folder-hook tag:bugs set sort=date
 
 ##
 ## HEADERS
