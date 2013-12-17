@@ -1,8 +1,9 @@
+bind editor <tab> "complete-query"
+
 macro index,pager G "<shell-escape>flock -n ~/.lock/getmail getmail -v<return>"
 macro index,pager A "<modify-labels-then-hide>+archive -inbox\n<sync-mailbox>"
 macro index M "<tag-pattern>~N<return>;WN<untag-pattern>~A<return><sync-mailbox>"
 
-macro index,pager \\r "<pipe-message>~/bin/query-msgid-thread > ~/tmp/vfolderquery<enter><enter-command>source ~/tmp/vfolderquery<enter>"
 macro index,pager \\a "<pipe-message>abook --add-email<return>"
 macro index,pager \\s "<pipe-message>swap-sender | abook --add-email<return>"
 macro index,pager \\o "<enter-command>source ~/.mutt/macros/save-wait_key<return><pipe-message>about-sender<return><enter-command>source ~/.mutt/macros/restore-wait_key<return>"
