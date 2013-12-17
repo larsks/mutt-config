@@ -5,6 +5,8 @@ virtual-mailboxes \
 	"Interesting" "notmuch://?query=tag:interesting" \
 	"Following" "notmuch://?query=tag:following&type=threads" \
 	\
+	"Bugs" "notmuch://?query=tag:bugs AND NOT tag:archive &limit=200" \
+	\
 	"Cloud @ RedHat" "notmuch://?query=tag:unread AND tag:redhat AND tag:cloud AND NOT tag:archive&limit=200" \
 	"Cloud @ Elsewhere" "notmuch://?query=tag:unread AND NOT tag:redhat AND tag:cloud AND NOT tag:archive&limit=200" \
 	"Commits" "notmuch://?query=tag:unread AND to:cvs-commits&limit=200" \
@@ -13,5 +15,8 @@ virtual-mailboxes \
 	"People:mattdm" "notmuch://?query=from:mattdm AND tag:unread" \
 	"People:pmyers" "notmuch://?query=from:pmyers AND tag:unread" \
 	"People:dansmith" "notmuch://?query=(from:dansmith OR from:dms@danplanet.com) AND tag:unread" \
+	\
+	"Topic:cloud-init" "notmuch://?query=cloud-init AND tag:unread &limit=200" \
+	\
 	"Unfiltered" "notmuch://?query=tag:unread AND tag:list AND tag:latent AND NOT tag:archive&limit=200"
 
