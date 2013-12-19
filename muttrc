@@ -3,6 +3,12 @@ set from = "lars@redhat.com"
 set use_envelope_from = yes
 set hostname="redhat.com"
 
+alternates "(larsks|lkellogg)@((redhat|oddbit).com|(larsshack|avglks|vankelsted).org)"
+
+set nowait_key
+set noconfirmappend
+set allow_8bit
+
 set editor="vim"
 set mbox_type = Maildir
 set spoolfile = ~/Mail/
@@ -10,19 +16,19 @@ set folder = ~/Mail/
 set record = =.sent-mail
 set postponed = =.drafts
 set smtp_url = smtp://smtp.corp.redhat.com/
+set mime_forward=yes
 set mail_check = 60
 set timeout = 30
 set record = =sent-messages
-set confirmappend = no
-set wait_key=no
 set signature = ~/.signature
 set header_cache = ~/.mutt/cache/headers
 set message_cachedir = ~/.mutt/cache/messages
 set query_command = "$HOME/.mutt/scripts/query-command '%s'"
 set sort_browser = unsorted
+set score_threshold_read = 0
 
-folder-hook . set sort=threads
-folder-hook tag:bugs set sort=date
+set index_format="%4C %3N %?M?[%3M] ?%Z %[%d-%m-%Y] %-16.15F %s %> %<g?(%g)>"
+set pager_format = "-%Z- %C/%m: %-20.20n %s%* -- %?g?(%g)? - (%P)"
 
 ##
 ## HEADERS
@@ -44,9 +50,11 @@ alternative_order text/plain text/html text/calendar text/enriched
 auto_view text/html
 auto_view text/calendar
 
+source ~/.mutt/hooks
 source ~/.mutt/colors
 source ~/.mutt/gpg
 source ~/.mutt/notmuch
 source ~/.mutt/vfolders
 source ~/.mutt/keys
+source ~/.mutt/scores
 

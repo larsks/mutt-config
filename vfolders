@@ -5,18 +5,18 @@ virtual-mailboxes \
 	"Interesting" "notmuch://?query=tag:interesting" \
 	"Following" "notmuch://?query=tag:following&type=threads" \
 	\
-	"Bugs" "notmuch://?query=tag:bugs AND NOT tag:archive &limit=200" \
+	"Bugs" "notmuch://?query=tag:bugs AND NOT tag:unread &limit=200" \
 	\
-	"Cloud @ RedHat" "notmuch://?query=tag:unread AND tag:redhat AND tag:cloud AND NOT tag:archive&limit=200" \
-	"Cloud @ Elsewhere" "notmuch://?query=tag:unread AND NOT tag:redhat AND tag:cloud AND NOT tag:archive&limit=200" \
+	"Cloud @ RedHat" "notmuch://?query=tag:unread AND tag:redhat AND tag:cloud &limit=200" \
+	"Cloud @ Elsewhere" "notmuch://?query=tag:cloud AND date:7days.. AND tag:unread AND NOT tag:redhat" \
 	"Commits" "notmuch://?query=tag:unread AND to:cvs-commits&limit=200" \
-	"Red Hat" "notmuch://?query=tag:unread AND tag:redhat AND tag:list AND NOT tag:archive AND NOT tag:cloud AND NOT tag:robot&limit=200" \
-	"Other" "notmuch://?query=tag:unread AND NOT tag:redhat AND tag:list AND NOT tag:archive&limit=200" \
+	"Red Hat" "notmuch://?query=tag:unread AND tag:redhat AND tag:list AND NOT tag:cloud AND NOT tag:robot&limit=200" \
+	"Other" "notmuch://?query=tag:unread AND NOT tag:redhat AND tag:list &limit=500" \
 	"People:mattdm" "notmuch://?query=from:mattdm AND tag:unread" \
 	"People:pmyers" "notmuch://?query=from:pmyers AND tag:unread" \
 	"People:dansmith" "notmuch://?query=(from:dansmith OR from:dms@danplanet.com) AND tag:unread" \
 	\
 	"Topic:cloud-init" "notmuch://?query=cloud-init AND tag:unread &limit=200" \
 	\
-	"Unfiltered" "notmuch://?query=tag:unread AND tag:list AND tag:latent AND NOT tag:archive&limit=200"
+	"Unfiltered" "notmuch://?query=tag:unread AND tag:list AND tag:latent &limit=200"
 

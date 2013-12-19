@@ -22,6 +22,7 @@ color body magenta default "(ftp|http|https)://[^ ]+"	# point out URLs
 color body magenta default [-a-z_0-9.]+@[-a-z_0-9.]+	# e-mail addresses
 color underline brightgreen default
 
+color index brightred default "~F"
 color index red default "~h \"^x-bugzilla-assigned-to: lars@redhat\.com\""
 color index yellow default "~h \"^x-bugzilla-reporter: lars@redhat\.com\""
 

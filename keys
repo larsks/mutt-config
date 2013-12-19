@@ -1,19 +1,25 @@
-bind editor <tab> "complete-query"
+bind editor	<tab>	complete-query
+bind index	-	collapse-thread
+bind index	_	collapse-all
 
-macro index,pager G "<shell-escape>flock -n ~/.lock/getmail getmail -v<return>"
+macro index,pager G "<shell-escape>flock -n ~/.lock/getmail $HOME/bin/mail-fetch<return>"
 macro index,pager A "<modify-labels-then-hide>+archive -inbox\n<sync-mailbox>"
 macro index M "<tag-pattern>~N<return>;WN<untag-pattern>~A<return><sync-mailbox>"
+macro index H "<tag-pattern>~n0-0<enter><tag-prefix-cond><quasi-delete><sync-mailbox>"
+macro index I "<tag-thread><tag-prefix-cond><modify-labels-then-hide>+ignore<return><sync-mailbox>"
 
 macro index,pager \\a "<pipe-message>abook --add-email<return>"
 macro index,pager \\s "<pipe-message>swap-sender | abook --add-email<return>"
 macro index,pager \\o "<enter-command>source ~/.mutt/macros/save-wait_key<return><pipe-message>about-sender<return><enter-command>source ~/.mutt/macros/restore-wait_key<return>"
 macro index,pager \cb "<pipe-entry>urlview<enter>"
 macro index,pager \\ti "<modify-labels>+interesting<return>"
+macro index,pager \\tk "<modify-labels>+ignore<return>"
 macro index,pager \\tf "<modify-labels>+following<return>"
 macro index,pager \\tm "<modify-labels>+mute<return>"
 macro index,pager \\tI "<modify-labels>-interesting<return>"
 macro index,pager \\tF "<modify-labels>-following<return>"
+macro index,pager \\tK "<modify-labels>-ignore<return>"
 macro index,pager \\tM "<modify-labels>-mute<return>"
-macro compose    \\T "<enter-command>source ~/.mutt/macros/save-editor<return><enter-command>set editor=~/bin/add-rhos-dev-tag<return><edit-headers><enter-command>source ~/.mutt/macros/restore-editor<return>"
 
+macro index,pager \\r "<pipe-message>~/bin/query-msgid-thread > ~/tmp/vfolderquery<enter><enter-command>source ~/tmp/vfolderquery<enter>"
 
