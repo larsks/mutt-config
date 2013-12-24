@@ -1,13 +1,16 @@
 unscore *
 
-score "~A" 1
-score "~s \"Protesters Stopped A Google Bus From Moving\"" -1
-score "~Y ignore" -1
-score "~(~Y ignore)" -1
+score "~A" 2
+score "~Y ignore" -2
+score "~(~Y ignore)" -2
+
+score "~s \"Protesters Stopped A Google Bus From Moving\"" -2
+score "~s wfh" -1
 
 score "~p" 1
 score "~P" 1
 score "~F" 1
 
 score "~L pmyers" 1
+score "~Y needinfo" 1
 
